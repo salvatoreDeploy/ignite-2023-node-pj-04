@@ -1,0 +1,28 @@
+import { Questions } from '@/domain/entities/questions'
+import { IQuestionsRepository } from '../repositories/question-repository'
+
+interface GetQuestionBySlugUseCaseRequest {
+  slug: string
+}
+
+interface GetQuestionBySlugUseCaseResponse {
+  question: Questions
+}
+
+export class GetQuestionBySlugUseCase {
+  constructor(private questionRepository: IQuestionsRepository) {
+    return
+  }
+
+  async execute({
+    slug,
+  }: GetQuestionBySlugUseCaseRequest): Promise<GetQuestionBySlugUseCaseResponse> {
+    const question = await this.questionRepository.findBySlug(slug)
+
+    if (!question) {
+      throw new Error('Question not found')
+    }
+
+    return { question }
+  }
+}

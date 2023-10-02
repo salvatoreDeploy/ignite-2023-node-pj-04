@@ -1,0 +1,33 @@
+import { IAnswerRepository } from '../repositories/answer-repository'
+import { Answer } from '@/domain/entities/answer'
+
+interface FetchQuestionAnswerUseCaseRequest {
+  questionId: string
+  page: number
+}
+
+interface FetchQuestionAnswerUseCaseResponse {
+  answers: Answer[]
+}
+
+export class FetchQuestionAnswerUseCase {
+  constructor(private answerRepository: IAnswerRepository) {
+    return
+  }
+
+  async execute({
+    questionId,
+    page,
+  }: FetchQuestionAnswerUseCaseRequest): Promise<FetchQuestionAnswerUseCaseResponse> {
+    const answers = await this.answerRepository.findManyByQuestionId(
+      questionId,
+      {
+        page,
+      },
+    )
+
+    return {
+      answers,
+    }
+  }
+}
