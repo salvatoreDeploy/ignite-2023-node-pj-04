@@ -1,7 +1,14 @@
-import { AnswerCommentProps } from '@/domain/entities/answer-comment'
+import { PaginationParams } from '@/core/repositories/pagination-params'
+import { AnswerComment } from '@/domain/entities/answer-comment'
 
 interface IAnswerCommentsRepository {
-  create(question: AnswerCommentProps): Promise<void>
+  create(answer: AnswerComment): Promise<void>
+  delete(answer: AnswerComment): Promise<void>
+  findById(id: string): Promise<AnswerComment | null>
+  findManyByAnswerId(
+    answerId: string,
+    params: PaginationParams,
+  ): Promise<AnswerComment[]>
 }
 
 export { IAnswerCommentsRepository }

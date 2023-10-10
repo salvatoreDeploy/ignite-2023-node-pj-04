@@ -1,16 +1,15 @@
 /* eslint-disable prettier/prettier */
-
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
-import { QuestionComment, QuestionCommentProps } from '@/domain/entities/question-comment'
+import { AnswerComment, AnswerCommentProps } from '@/domain/entities/answer-comment'
 import { faker } from '@faker-js/faker'
 
-export function makeQuestionComment(
-  overriide: Partial<QuestionCommentProps> = {},
+export function makeAnswerComment(
+  overriide: Partial<AnswerCommentProps> = {},
   id?: UniqueEntityId,
 ) {
-  const questionComment = QuestionComment.create(
+  const answerComment = AnswerComment.create(
     {
-      questionId: new UniqueEntityId(),
+      answerId: new UniqueEntityId(),
       authorId: new UniqueEntityId(),
       content: faker.lorem.text(),
       ...overriide,
@@ -18,5 +17,5 @@ export function makeQuestionComment(
     id,
   )
 
-  return questionComment
+  return answerComment
 }
