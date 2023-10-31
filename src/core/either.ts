@@ -1,4 +1,5 @@
 // Error
+
 export class Left<L, R> {
   readonly value: L // Motivo do erro
 
