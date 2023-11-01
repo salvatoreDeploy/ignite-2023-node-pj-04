@@ -19,11 +19,11 @@ describe('Get Question by Slug', () => {
 
     inMemoryQuestionsRepository.create(newQuestion)
 
-    const { question } = await sut.execute({
+    const result = await sut.execute({
       slug: 'example-question',
     })
 
-    expect(question.id).toBeTruthy()
-    expect(question.slug).toEqual(newQuestion.slug)
+    expect(result.value?.question.id).toBeTruthy()
+    expect(result.value?.question.slug).toEqual(newQuestion.slug)
   })
 })

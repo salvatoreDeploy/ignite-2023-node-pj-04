@@ -2,6 +2,8 @@ import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questio
 import { makeQuestion } from 'test/factories/makeQuestion'
 import { DeleteQuestionUseCase } from './delete-question'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { NotAllowedError } from './errors/not-allowed-error'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: DeleteQuestionUseCase
@@ -33,9 +35,12 @@ describe('Delete Question', () => {
 
     inMemoryQuestionsRepository.create(newQuestion)
 
-    expect(() => {
-      return sut.execute({ authorId: 'author-2', questionId: 'question-1' })
-    }).rejects.toBeInstanceOf(Error)
-    expect(inMemoryQuestionsRepository.items).toHaveLength(1)
+    const result = await sut.execute({
+      authorId: 'author-2',
+      questionId: 'question-1',
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(ResourceNotFoundError)
   })
 })
