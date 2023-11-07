@@ -1,7 +1,7 @@
-import { Questions } from '@/domain/entities/questions'
 import { IQuestionsRepository } from '../repositories/question-repository'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { Either, right } from '@/core/either'
+import { Questions } from '../../enterprise/entities/questions'
 
 interface CreateQuestionUseCaseRequest {
   authorId: string

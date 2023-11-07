@@ -1,5 +1,9 @@
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
-import { QuestionProps, Questions } from '@/domain/entities/questions'
+import {
+  QuestionProps,
+  Questions,
+} from '@/domain/forum/enterprise/entities/questions'
+
 import { faker } from '@faker-js/faker'
 
 export function makeQuestion(

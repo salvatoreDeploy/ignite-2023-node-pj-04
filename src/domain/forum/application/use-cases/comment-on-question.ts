@@ -1,10 +1,10 @@
 import { IQuestionsRepository } from '../repositories/question-repository'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
-import { QuestionComment } from '@/domain/entities/question-comment'
 import { IQuestionCommentsRepository } from '../repositories/question-comments-repository'
 import { Either, left, right } from '@/core/either'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 import { NotAllowedError } from './errors/not-allowed-error'
+import { QuestionComment } from '../../enterprise/entities/question-comment'
 
 interface CommentOnQuestionUseCaseRequest {
   authorId: string

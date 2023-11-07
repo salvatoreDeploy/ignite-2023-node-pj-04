@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
-import { AnswerComment, AnswerCommentProps } from '@/domain/entities/answer-comment'
+import { AnswerComment, AnswerCommentProps } from '@/domain/forum/enterprise/entities/answer-comment'
 import { faker } from '@faker-js/faker'
 
 export function makeAnswerComment(
