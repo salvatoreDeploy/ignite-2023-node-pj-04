@@ -1,6 +1,6 @@
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { Questions } from '@/domain/entities/questions'
 import { IQuestionsRepository } from '@/domain/forum/application/repositories/question-repository'
+import { Questions } from '@/domain/forum/enterprise/entities/questions'
 
 export class InMemoryQuestionsRepository implements IQuestionsRepository {
   public items: Questions[] = []

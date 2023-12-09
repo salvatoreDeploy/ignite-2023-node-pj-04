@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { QuestionComment } from '@/domain/entities/question-comment'
 import { IQuestionCommentsRepository } from '@/domain/forum/application/repositories/question-comments-repository'
+import { QuestionComment } from '@/domain/forum/enterprise/entities/question-comment'
 
 export class InMemoryQuestionCommentsRepository
   implements IQuestionCommentsRepository {

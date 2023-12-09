@@ -22,8 +22,12 @@ describe('Create as Answer', () => {
     expect(result.isRight()).toBe(true)
     expect(result.value?.question.content).toEqual('Conteudo da pergunta')
     expect(inMemoryQuestionsRepository.items[0]).toEqual(result.value?.question)
-    expect(inMemoryQuestionsRepository.items[0].attachment).toHaveLength(2)
-    expect(inMemoryQuestionsRepository.items[0].attachment).toEqual([
+    expect(
+      inMemoryQuestionsRepository.items[0].attachment.currentItems,
+    ).toHaveLength(2)
+    expect(
+      inMemoryQuestionsRepository.items[0].attachment.currentItems,
+    ).toEqual([
       expect.objectContaining({
         attachmentId: new UniqueEntityId('1'),
       }),
