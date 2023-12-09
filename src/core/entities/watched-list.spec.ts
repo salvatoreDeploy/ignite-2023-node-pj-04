@@ -5,6 +5,7 @@ class NumberWatchedList extends WatchedList<number> {
     return a === b
   }
 }
+
 describe('watched list', () => {
   it('Should be able to create a watched list with initial items.', () => {
     const list = new NumberWatchedList([1, 2, 3])
