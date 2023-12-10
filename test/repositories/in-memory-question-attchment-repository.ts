@@ -4,6 +4,7 @@ import { QuestionAttachment } from '@/domain/forum/enterprise/entities/question-
 
 export class InMemoryQuestionAttchmentRepository
   implements IQuestionAttchmentsRepository {
+
   public items: QuestionAttachment[] = []
 
   async findManyByQuestionId(
@@ -15,4 +16,12 @@ export class InMemoryQuestionAttchmentRepository
 
     return questionAttchment
   }
+
+  async deleteManyByQuestionId(questionId: string): Promise<void> {
+    const questionAttchment = this.items.filter(item => item.questionId.toString() !== questionId)
+
+    this.items = questionAttchment
+  }
+
+
 }
