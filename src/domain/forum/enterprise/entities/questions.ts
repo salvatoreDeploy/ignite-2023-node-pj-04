@@ -3,7 +3,6 @@ import { Slug } from './value-objects/slug'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 import dayjs from 'dayjs'
-import { QuestionAttachment } from './question-attachment'
 import { QuestionAttachmentList } from './question-attachment-list'
 
 export interface QuestionProps {
@@ -80,6 +79,7 @@ export class Questions extends AggregateRoot<QuestionProps> {
 
   set attachment(attachment: QuestionAttachmentList) {
     this.props.attachment = attachment
+    this.touch()
   }
 
   static create(

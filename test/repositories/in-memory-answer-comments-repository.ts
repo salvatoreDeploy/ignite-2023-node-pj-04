@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
-
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { AnswerComment } from '@/domain/entities/answer-comment'
 import { IAnswerCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository'
+import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comment'
 
 export class InMemoryAnswerCommentsRepository
   implements IAnswerCommentsRepository {
@@ -20,13 +19,13 @@ export class InMemoryAnswerCommentsRepository
   }
 
   async findById(id: string): Promise<AnswerComment | null> {
-    const questionComment = this.items.find((item) => item.id.toString() === id)
+    const answerComment = this.items.find((item) => item.id.toString() === id)
 
-    if (!questionComment) {
+    if (!answerComment) {
       return null
     }
 
-    return questionComment
+    return answerComment
   }
 
   async findManyByAnswerId(

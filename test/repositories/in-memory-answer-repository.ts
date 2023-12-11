@@ -1,9 +1,14 @@
+/* eslint-disable prettier/prettier */
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { Answer } from '@/domain/entities/answer'
+import { IAnswerAttchmentsRepository } from '@/domain/forum/application/repositories/answer-attachments-reposritory'
+
 import { IAnswerRepository } from '@/domain/forum/application/repositories/answer-repository'
+import { Answer } from '@/domain/forum/enterprise/entities/answer'
 
 export class InMemoryAnswerRepository implements IAnswerRepository {
   public items: Answer[] = []
+
+  constructor(private answerAttchmentRepository: IAnswerAttchmentsRepository) { }
 
   async create(answer: Answer): Promise<void> {
     this.items.push(answer)
@@ -34,6 +39,8 @@ export class InMemoryAnswerRepository implements IAnswerRepository {
     const itemIndex = this.items.findIndex((item) => item.id === answer.id)
 
     this.items.splice(itemIndex, 1)
+
+    this.answerAttchmentRepository.deleteManyByAnswerId(answer.id.toString())
   }
 
   async save(answer: Answer): Promise<void> {

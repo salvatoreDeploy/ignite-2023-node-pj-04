@@ -22,6 +22,4 @@ export class InMemoryQuestionAttchmentRepository
 
     this.items = questionAttchment
   }
-
-
 }

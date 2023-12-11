@@ -1,5 +1,5 @@
 import { PaginationParams } from '@/core/repositories/pagination-params'
-import { AnswerComment } from '@/domain/entities/answer-comment'
+import { AnswerComment } from '../../enterprise/entities/answer-comment'
 
 interface IAnswerCommentsRepository {
   create(answer: AnswerComment): Promise<void>

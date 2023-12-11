@@ -1,4 +1,4 @@
-import { QuestionComment } from '@/domain/entities/question-comment'
+import { QuestionComment } from '../../enterprise/entities/question-comment'
 import { IQuestionCommentsRepository } from '../repositories/question-comments-repository'
 import { Either, right } from '@/core/either'
 

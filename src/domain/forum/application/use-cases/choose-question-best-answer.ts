@@ -1,9 +1,9 @@
 import { IAnswerRepository } from '../repositories/answer-repository'
-import { Questions } from '@/domain/entities/questions'
 import { IQuestionsRepository } from '../repositories/question-repository'
 import { Either, left, right } from '@/core/either'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 import { NotAllowedError } from './errors/not-allowed-error'
+import { Questions } from '../../enterprise/entities/questions'
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
   authorId: string

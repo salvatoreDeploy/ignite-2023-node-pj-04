@@ -2,13 +2,13 @@
 
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { QuestionAttachment, QuestionAttachmentProps } from '@/domain/forum/enterprise/entities/question-attachment'
-import { faker } from '@faker-js/faker'
+
 
 export function makeQuestionAttchment(
   overriide: Partial<QuestionAttachmentProps> = {},
   id?: UniqueEntityId,
 ) {
-  const questionComment = QuestionAttachment.create(
+  const questionAttachment = QuestionAttachment.create(
     {
       questionId: new UniqueEntityId(),
       attachmentId: new UniqueEntityId(),
@@ -17,5 +17,5 @@ export function makeQuestionAttchment(
     id,
   )
 
-  return questionComment
+  return questionAttachment
 }
