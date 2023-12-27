@@ -2,8 +2,8 @@ import { IAnswerRepository } from '../repositories/answer-repository'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { IAnswerCommentsRepository } from '../repositories/answer-comments-repository'
 import { Either, left, right } from '@/core/either'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { NotAllowedError } from './errors/not-allowed-error'
+import { ResourceNotFoundError } from '../../../../core/errors/resource-not-found-error'
+import { NotAllowedError } from '../../../../core/errors/not-allowed-error'
 import { AnswerComment } from '../../enterprise/entities/answer-comment'
 
 interface CommentOnAnswerUseCaseRequest {

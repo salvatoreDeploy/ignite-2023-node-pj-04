@@ -4,7 +4,7 @@ import { makeAnswer } from 'test/factories/makeAnswer'
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
 import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer'
 import { makeQuestion } from 'test/factories/makeQuestion'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../../../../core/errors/resource-not-found-error'
 import { InMemoryAnswerAttachmentRepository } from 'test/repositories/in-memory-answer-attchment-repository'
 import { InMemoryQuestionAttchmentRepository } from 'test/repositories/in-memory-question-attchment-repository'
 

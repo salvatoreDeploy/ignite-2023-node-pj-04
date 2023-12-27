@@ -2,7 +2,7 @@ import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questio
 import { makeQuestion } from 'test/factories/makeQuestion'
 import { DeleteQuestionUseCase } from './delete-question'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../../../../core/errors/resource-not-found-error'
 import { InMemoryQuestionAttchmentRepository } from 'test/repositories/in-memory-question-attchment-repository'
 import { makeQuestionAttchment } from 'test/factories/makeQuestionAttchment'
 
